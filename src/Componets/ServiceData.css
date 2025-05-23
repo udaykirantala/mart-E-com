@@ -1,0 +1,21 @@
+.serviceCardImage img{
+    width: 50px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+}
+.serviceContainer{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: 10px;
+    padding: 10px 50px;
+}
+.serviceCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+}
