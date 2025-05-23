@@ -1,5 +1,23 @@
-/* .carousel-item{
+#carouselContainer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-} */
+    padding: 20px 50px;
+}
+#inner{
+    background-color:#b8f0f064;
+}
+#carouselDetails{
+    width: 41%;
+}
+#carouselDetails h2{
+    font-size: 70px;
+    text-align: start;
+}
+#carouselDetails p{
+    font-size: 23px;
+    text-align: start;
+}
+#carouselDetails button{
+    margin-right: 75%;
+}

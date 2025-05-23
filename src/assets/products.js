@@ -33,6 +33,11 @@ import wireless04 from "./Images/wireless-04.png";
 import sofaSlide from "./Images/hero-img.png";
 import watchSlide from "./Images/watch-07.png";
 
+import Car from './Images/car-solid.svg'
+import Card from './Images/creditcard.svg'
+import Headphones from './Images/headphones.svg'
+import Shiled from './Images/shieldhalved.svg'
+
 export const SliderData = [
   {
       id: 1,
@@ -62,25 +67,25 @@ export const SliderData = [
 
 export const serviceData = [
   {
-    icon:'car',
+    icon:Car,
     title: "Free Shipping",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#fdefe6",
   },
   {
-    icon:'card',
+    icon:Card,
     title: "Safe Payment",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#ceebe9",
   },
   {
-    icon:'Shiled',
+    icon:Shiled,
     title: "Secure Payment",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#e2f2b2",
   },
   {
-    icon:'hedset',
+    icon:Headphones,
     title: " Back Guarantee",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#d6e5fb",
