@@ -1,19 +1,28 @@
-export const Carousel=()=>{
-    return(
-        <>
-        <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-      <img src="https://images.pexels.com/photos/32138216/pexels-photo-32138216/free-photo-of-cat-by-vibrant-doorway-in-artistic-alley.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" className="d-block w-100" alt="..."/>
+import { SliderData } from "../assets/products";
+import "../Componets/Carousel.css";
+
+export const Carousel = () => {
+  return (
+    <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+      <div className="carousel-inner">
+        {SliderData.map((slide, index) => (
+          <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+            <div className="text-center p-3">
+              <h2>{slide.title}</h2>
+              <p>{slide.desc}</p>
+              <button className="btn btn-primary">Visit Collections</button>
+            </div>
+            <div>
+              <img
+                src={slide.cover}
+                className="d-block w-100"
+                alt={slide.title}
+                height="250px"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-    <div className="carousel-item">
-      <img src="https://images.pexels.com/photos/27580823/pexels-photo-27580823/free-photo-of-woman-in-red-shirt-posing-with-hands-in-hair.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" className="d-block w-100" alt="..."/>
-    </div>
-    <div className="carousel-item">
-      <img src="https://images.pexels.com/photos/27580823/pexels-photo-27580823/free-photo-of-woman-in-red-shirt-posing-with-hands-in-hair.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" className="d-block w-100" alt="..."/>
-    </div>
-  </div>
-</div>
-        </>
-    )
-}
+  );
+};

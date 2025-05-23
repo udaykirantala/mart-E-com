@@ -1,0 +1,20 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0% 4%;
+    box-shadow: 0px 4px 10px gray;
+}
+.headerImage img{
+    width: 250px;
+}
+.headerLinks{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 70px;
+}
+.headerLinks li{
+    list-style: none;
+    font-size: 20px;
+}
