@@ -1,0 +1,58 @@
+.productCardImage img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+.productCard{
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 3px 3px 5px gray;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+}
+.productCardImage{
+    padding-top: 30px;
+    width: 100%;
+    height: 400px;
+}
+.productDetails{
+    height: 200px;
+    width: 90%;
+    position: relative;
+}
+.productDetails span{
+    font-size:25px;
+    letter-spacing:10px;
+}
+.productDetails h2{
+    height: 80px;
+}
+.productDetails h3{
+    margin-top: 10px;
+}
+.productDetailsButton{
+    position: absolute;
+    bottom: 40px;
+    right: -20px;
+}
+.productDetailsButton button{
+    background-color: white;
+    border-radius: 120px;
+    border-color: rgba(0, 0, 0, 0.521);
+    font-size: 25px;
+    padding: 8px 15px;
+    color: rgba(0, 0, 0, 0.699);
+}
+.productDiscount{
+    position: absolute;
+    top: 1.5%;
+    left: 3%;
+}
+.productDiscount p{
+    background-color:darkblue;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 50px;
+}

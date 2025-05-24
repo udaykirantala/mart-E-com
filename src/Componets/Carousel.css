@@ -5,7 +5,7 @@
     padding: 20px 50px;
 }
 #inner{
-    background-color:#b8f0f064;
+    background-color:#b8f0f030;
 }
 #carouselDetails{
     width: 41%;
@@ -19,5 +19,5 @@
     text-align: start;
 }
 #carouselDetails button{
-    margin-right: 75%;
+    margin-right: 74.9%;
 }

@@ -13,8 +13,8 @@ export const Header = ()=>{
                         <li>Home</li>
                         <li>Shop</li>
                         <li>Cart</li>
-                        <li><i class="fa-solid fa-user"></i></li>
-                        <li><i class="fa-solid fa-cart-shopping"></i></li>
+                        <li><i className="fa-solid fa-user"></i></li>
+                        <li><i className="fa-solid fa-cart-shopping"></i></li>
                     </ul>
                 </nav>
             </div>
