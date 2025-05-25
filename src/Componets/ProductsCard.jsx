@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import './ProductsCard.css'
 export const ProductsCard = (props) => {
     return (
         <div className="productCard">
-            <div className='productCardImage'>
+            <Link to={`/${props.id}`}><div className='productCardImage'>
                 <img src={props.imgUrl} alt={props.productName} />
-            </div>
+            </div></Link>
             <div className='productDetails'>
                 <h2>{props.productName}</h2>
                 <span>
