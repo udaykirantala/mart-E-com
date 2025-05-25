@@ -1,0 +1,42 @@
+.footerConatiner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: navy;
+    color: white;
+    gap: 40px;
+}
+.footerConatiner p{
+    color: gray;
+}
+.martName span{
+    padding-left: 10px;
+}
+.martName,.aboutUs,.customerCare,.contactUs{
+    width: 24%;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: start;
+    gap: 10px;
+}
+.martName{
+    padding-bottom: 50px;
+}
+.aboutUs,.customerCare{
+    padding-bottom: 20px;
+}
+.contactUs{
+    padding-bottom: 70px;
+}
+.listDatails ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0%;
+}
+.listDatails ul li{
+    list-style: none;
+    color: gray;
+}

@@ -5,6 +5,7 @@ import { Servicedata } from './Componets/ServiceData'
 import { Bigdiscount } from './Componets/Bigdiscount'
 import { NewArrivals } from './Componets/NewArrivals'
 import { BestSales } from './Componets/BestSales'
+import { Footer } from './Componets/Footer'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <Bigdiscount/>
     <NewArrivals/>
     <BestSales/>
+    <Footer/>
     </>
   )
 }
