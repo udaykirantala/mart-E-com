@@ -1,4 +1,3 @@
-import { ProductsCard } from "./ProductsCard"
 import '../Componets/NewArrivals.css'
 import { electronic } from "../assets/filterArray"
 import { ProductsCardNewBest } from "./ProductsCardNewBest"

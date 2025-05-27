@@ -1,0 +1,9 @@
+.suggistedContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    align-items: center;
+}
+.suggistedDetailsImage img{
+    width: 10px;
+}

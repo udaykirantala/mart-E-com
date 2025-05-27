@@ -5,7 +5,7 @@ import { ProductsCardNewBest } from "./ProductsCardNewBest"
 export const BestSales = ()=>{
     return(
         <>
-        <div><h1 className="NameBestSales">New Arrivals</h1></div>
+        <div><h1 className="NameBestSales">Best Sales</h1></div>
         <div className="productsContainerBestSales">
             {sofa.map((item)=>(
                 <div>
