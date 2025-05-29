@@ -1,10 +1,10 @@
 .productsContainerBestSales{
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     flex-wrap: wrap;
     padding: 50px 100px;
-    row-gap: 20px;
+    gap: 20px;
     background-color: #b8f0f030;
 }
 .NameBestSales{

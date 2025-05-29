@@ -2,40 +2,37 @@ import { useEffect, useState } from "react";
 import { products } from "../assets/products";
 import './SuggistedProducts.css'
 
-export const SuggistedProduct = ({ likeid }) => {
+export const SuggistedProduct = ({ likeid,currentid }) => {
   const [suggistproduct, setsuggistproduct] = useState([]);
 
   useEffect(() => {
-    const filtersuggistProduct = products.filter((i) => i.category === likeid);
+    const filtersuggistProduct = products.filter((i) => i.category === likeid&&i.id!==currentid);
     setsuggistproduct(filtersuggistProduct);
   }, [likeid]);
 
   return (
   <div>
-    <div><h1 className="NameNewArrivals">New Arrivals</h1></div>
+    <div><h1 className="suggistedProductName">You might also like</h1></div>
     
     {suggistproduct.length > 0 ? (
       <div className="suggistedContainer">
         {suggistproduct.map((item) => (
-          <div key={item.id}>
-            <div className='suggistedDetails'>
-              <div className="suggistedDetailsImage">
-                <img src={item.imgUrl} alt={item.productName} />
+          <div className="suggistedProductContainer">
+            <div className="suggistedProductImage"><img src={item.imgUrl} alt={item.productName} /></div>
+            <div className="suggistedProductDetailsConatiner">
+              <div><h2>{item.productName}</h2></div>
+              <div className="suggistedProductStar_Price">
+                <span>
+                    <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                    <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                    <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                    <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                    <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                </span>
+                <h4>${item.price}</h4>
               </div>
-              <h2>{item.productName}</h2>
-              <span>
-                <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
-                <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
-                <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
-                <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
-                <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
-              </span>
-              <h3>${item.price}</h3>
-              <div className='productDetailsButton'>
-                <button><i className="fa-solid fa-plus"></i></button>
-              </div>
+              <div className="suggistedProductButton"><button><i className="fa-solid fa-plus"></i></button></div>
             </div>
-            <div className='suggistedDiscount'><p>{item.discount}% Off</p></div>
           </div>
         ))}
       </div>

@@ -3,7 +3,7 @@
 }
 .productDetailsContainer{
     display: flex;
-    justify-content: baseline;
+    justify-content: center;
     align-items: center;
     gap: 30px;
     margin-bottom: 50px;

@@ -1,10 +1,10 @@
 .productsContainerNewArrivals{
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     flex-wrap:wrap;
     padding: 50px 100px;
-    row-gap: 20px;
+    gap: 25px;
     background-color: white;
 }
 .NameNewArrivals{

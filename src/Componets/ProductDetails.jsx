@@ -63,7 +63,7 @@ export const Productdetails = () => {
             </div>
           </div>
           <div>
-            <SuggistedProduct likeid={item.category} />
+            <SuggistedProduct likeid={item.category} currentid={item.id} />
           </div>
         </div>
       ))}
