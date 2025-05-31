@@ -1,36 +1,76 @@
 import { useEffect, useState } from "react";
 import { products } from "../assets/products";
 import { Product } from "./Product";
-
+import './Shop.css'
+ 
 export const Shop = () => {
   const [dropDownValue, setDropDownValue] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchProduct, setSearchProduct] = useState("");
+  const [searchActive, setSearchActive] = useState(false); // flag to switch between category/search
 
   const handleChange = (e) => {
     setDropDownValue(e.target.value);
+    setSearchActive(false);
+  };
+
+  const handleInputChange = (e) => {
+    setSearchProduct(e.target.value);
+  };
+
+  const handleSearchClick = () => {
+    const searchResult = products.filter((item) =>
+      item.productName.toLowerCase().includes(searchProduct.toLowerCase())
+    );
+    setFilteredProducts(searchResult);
+    setSearchActive(true);
   };
 
   useEffect(() => {
-    const categoryToFilter = dropDownValue === "" ? "sofa" : dropDownValue;
+    if (!searchActive) {
+      const categoryToFilter = dropDownValue === "" ? "sofa" : dropDownValue;
 
-    const filterProduct = products.filter(
-      (item) => item.category === categoryToFilter
-    );
-    setFilteredProducts(filterProduct);
-  }, [dropDownValue]);
+      const filterProduct = products.filter(
+        (item) => item.category === categoryToFilter
+      );
+
+      setFilteredProducts(filterProduct);
+    }
+  }, [dropDownValue, searchActive]);
 
   return (
     <div>
-      <div>
-        <select id="dropDown" value={dropDownValue} onChange={handleChange}>
-          <option value=''>Filter By Category</option>
-          <option value="sofa">Sofa</option>
-          <option value="chair">Chair</option>
-          <option value="watch">Watch</option>
-          <option value="mobile">Mobile</option>
-          <option value="wireless">Wireless</option>
-        </select>
-      </div>
+      <div className="shopeFilterSearchContainer">
+        <div className="shopFilterContainer">
+          <select
+            id="dropDown"
+            value={dropDownValue}
+            onChange={handleChange}
+            className="custom-dropdown"
+          >
+            <option value="">Filter By Category</option>
+            <option value="sofa">Sofa</option>
+            <option value="chair">Chair</option>
+            <option value="watch">Watch</option>
+            <option value="mobile">Mobile</option>
+            <option value="wireless">Wireless</option>
+          </select>
+        </div>
+        <div className="shopSearchContainer">
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search...."
+            value={searchProduct}
+            onChange={handleInputChange}
+          />
+          <button onClick={handleSearchClick}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div><br/>
+
       <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "1rem" }}>
         {filteredProducts.length > 0 ? (
           filteredProducts.map((p) => (
@@ -42,9 +82,9 @@ export const Shop = () => {
             />
           ))
         ) : (
-          <p>No products found for this category.</p>
+          <p>No products found.</p>
         )}
-      </div>
+      </div><br/>
     </div>
   );
 };

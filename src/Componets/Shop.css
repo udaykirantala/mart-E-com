@@ -1,0 +1,58 @@
+.shopeFilterSearchContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+}
+.shopSearchContainer{
+    position: relative;
+}
+.shopSearchContainer input{
+    width:650px ;
+    height: 40px;
+    border: none;
+    border-radius: 18px;
+    background-color: rgba(128, 128, 128, 0.212);
+    padding: 20px;
+    color: black;
+}
+.shopeFilterSearchContainer button{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+}
+.shopFilterContainer {
+  display: inline-block;
+}
+.shopFilterContainer option{
+    background-color: white;
+    color: black;
+}
+
+/* Style the select element */
+.custom-dropdown {
+  background-color: #003366; /* Dark Navy */
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='white'%20d='M2%200L0%202h4L2%200z'/%3E%3C/svg%3E"); */
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 36px; /* room for arrow */
+  cursor: pointer;
+}
+
+/* Optional: Hover effect */
+.custom-dropdown:hover {
+  background-color: #003366;
+}
