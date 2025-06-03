@@ -6,10 +6,14 @@ import { Shop } from './Componets/Shop'
 import { Cart } from './Componets/Cart'
 import { Footer } from './Componets/Footer'
 import { Productdetails } from './Componets/ProductDetails'
+import { CartContext } from './Componets/CartContext'
+import { useState } from 'react'
 function App() {
+  const [cart,setCart]=useState([])
   return (
     <>
-    <Header/>
+    <CartContext.Provider value={[cart,setCart]}>
+    <Header cout={cart.length}/>
     <Routes>
       <Route path='/' element={<Homepage/> } />
       <Route path='/home' element={<Homepage/> }/>
@@ -18,6 +22,7 @@ function App() {
       <Route path='/:id' element={<Productdetails/>}/>
     </Routes>
     <Footer/>
+    </CartContext.Provider>
     </>
   )
 }
