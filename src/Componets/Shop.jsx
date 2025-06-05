@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { products } from "../assets/products";
 import { Product } from "./Product";
 import './Shop.css'
+import { BanerPage } from "./BanerPage";
  
 export const Shop = () => {
   const [dropDownValue, setDropDownValue] = useState("");
@@ -40,6 +41,9 @@ export const Shop = () => {
 
   return (
     <div>
+      <div>
+        <BanerPage/> 
+      </div>
       <div className="shopeFilterSearchContainer">
         <div className="shopFilterContainer">
           <select
@@ -78,6 +82,7 @@ export const Shop = () => {
               imgUrl={p.imgUrl}
               productName={p.productName}
               price={p.price}
+              id={p.id}
               key={p.id}
             />
           ))

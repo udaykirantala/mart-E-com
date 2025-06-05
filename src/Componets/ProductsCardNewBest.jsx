@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import './ProductsCard.css'
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 export const ProductsCardNewBest = (props) => {
+    const [cart,setCart]=useContext(CartContext)
     return (
         <div className="productCard">
             <Link to={`/${props.id}`} ><div className='productCardImage'>
@@ -17,7 +20,19 @@ export const ProductsCardNewBest = (props) => {
                 </span>
                 <h3>${props.price}</h3>
                 <div className='productDetailsButton'>
-                    <button><i className="fa-solid fa-plus"></i></button>
+                    <button
+                    onClick={()=>{
+                        const existingProductIndex=cart.findIndex(p=>p.id===props.id);
+
+                        if(existingProductIndex !==-1){
+                            const updatedCart = [...cart];
+                            updatedCart[existingProductIndex].quantity=(updatedCart[existingProductIndex].quantity||1)+1;
+                            setCart(updatedCart);
+                        }else{
+                            setCart([...cart,{...props,quantity:1}]);
+                        }
+                    }} 
+                    ><i className="fa-solid fa-plus"></i></button>
                 </div>
             </div>
         </div>

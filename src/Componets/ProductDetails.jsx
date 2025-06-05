@@ -3,12 +3,15 @@ import { products } from "../assets/products";
 import { useParams } from "react-router-dom";
 import './ProductDetails.css'
 import { SuggistedProduct } from "./SuggistedProducts";
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 
 export const Productdetails = () => {
   const [product, setProduct] = useState([]);
-  const [reviewlan,setreviewlan]=useState();
-  const [activeTab,setactiveTab]=useState('discription');
+  const [reviewlan, setreviewlan] = useState(0);
+  const [activeTab, setactiveTab] = useState('discription');
   const { id } = useParams();
+  const [cart, setCart] = useContext(CartContext);
 
   useEffect(() => {
     const filteredProduct = products.filter((item) => item.id.toString() === id);
@@ -28,30 +31,53 @@ export const Productdetails = () => {
         <div key={item.id}>
           <div className="productDetailsContainer">
             <div className="productDetailsImage">
-              <img src={item.imgUrl} alt={item.productName}/>
+              <img src={item.imgUrl} alt={item.productName} />
             </div>
             <div className="productDetailsDetails">
               <h1>{item.productName}</h1>
-              <p className="productDetailsRatingNum"><span><i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i><i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i><i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i><i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i><i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i></span><span>{item.avgRating}: rating</span></p>
-              <p className="productDetailsCategory"><h3>${item.price}</h3><span>category:{item.category}</span></p>
+              <p className="productDetailsRatingNum">
+                <span>
+                  <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                  <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                  <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                  <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                  <i className="fa-solid fa-star" style={{ color: "#FFD43B" }}></i>
+                </span>
+                <span>{item.avgRating}: rating</span>
+              </p>
+              <p className="productDetailsCategory">
+                <h3>${item.price}</h3><span>category:{item.category}</span>
+              </p>
               <p>{item.shortDesc}</p>
-              <p></p>
-              <button>Add to Cart</button>
+              <button
+                onClick={() => {
+                  const existingProductIndex = cart.findIndex(p => p.id === item.id);
+
+                  if (existingProductIndex !== -1) {
+                    const updatedCart = [...cart];
+                    updatedCart[existingProductIndex].quantity = (updatedCart[existingProductIndex].quantity || 1) + 1;
+                    setCart(updatedCart);
+                  } else {
+                    setCart([...cart, { ...item, quantity: 1 }]);
+                  }
+                }}
+              >Add to Cart</button>
+
             </div>
-          </div><br/>
+          </div><br />
           <div>
             <div className="productDetailBtn">
-              <button onClick={()=>setactiveTab('discription')} style={{color:activeTab==='reviews'?'gray':'black'}}>Description</button>
-              <button onClick={()=>setactiveTab('reviews')} style={{color:activeTab==='reviews'?'black':'gray'}}>Reviews ({reviewlan})</button>
+              <button onClick={() => setactiveTab('discription')} style={{ color: activeTab === 'reviews' ? 'gray' : 'black' }}>Description</button>
+              <button onClick={() => setactiveTab('reviews')} style={{ color: activeTab === 'reviews' ? 'black' : 'gray' }}>Reviews ({reviewlan})</button>
             </div>
             <div className="DescriptionAndReviws">
-              {activeTab==='discription'?(
+              {activeTab === 'discription' ? (
                 <div>
                   <p>{item.description}</p>
                 </div>
-              ):(
+              ) : (
                 <div>
-                  {item.reviews.map((review,index) => (
+                  {item.reviews.map((review, index) => (
                     <div key={index} className="reviewDetails">
                       <h5>Jhone Doe</h5>
                       <p>{review.rating} (rating)</p>
