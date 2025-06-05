@@ -52,7 +52,7 @@ export const Shop = () => {
             onChange={handleChange}
             className="custom-dropdown"
           >
-            <option value="">Filter By Category</option>
+            <option value="">Filter By Category |</option>
             <option value="sofa">Sofa</option>
             <option value="chair">Chair</option>
             <option value="watch">Watch</option>
