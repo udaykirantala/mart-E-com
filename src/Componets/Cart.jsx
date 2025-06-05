@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
+import '../Componets/Cart.css'
 
 export const Cart = () => {
     const [cart, setCart] = useContext(CartContext);
@@ -22,37 +23,49 @@ export const Cart = () => {
         setCart(prevCart => prevCart.filter(item => item.id !== id));
     };
 
+    const totalPrice = cart.reduce((acc, item) => {
+        return acc + item.price * item.quantity;
+    }, 0);
+
+
     return (
-        <div>
-            {cart.map(item => (
-                <div key={item.id}>
-                    <div>
-                        <img src={item.imgUrl} alt={item.productName} />
-                    </div>
-                    <div>
-                        <h1>{item.productName}</h1>
-                        <p>
-                            {item.price} * {item.quantity} ={" "}
-                            <span>{item.price * item.quantity}</span>
-                        </p>
-                    </div>
-                    <div>
+        <div className="cartConatiner">
+            <div>
+                {cart.map(item => (
+                    <div key={item.id} className="cartProductDetailsContainer">
                         <div>
-                            <button onClick={() => removeItem(item.id)}>
-                                <i className="fa-solid fa-xmark"></i>
-                            </button>
+                            <img src={item.imgUrl} alt={item.productName} />
                         </div>
                         <div>
-                            <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
-                                <i className="fa-solid fa-plus"></i>
-                            </button>
-                            <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
-                                <i className="fa-solid fa-minus"></i>
-                            </button>
+                            <h1>{item.productName}</h1>
+                            <p>
+                                {item.price} * {item.quantity} ={" "}
+                                <span>{item.price * item.quantity}</span>
+                            </p>
+                        </div>
+                        <div>
+                            <div>
+                                <button onClick={() => removeItem(item.id)}>
+                                    <i className="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <div>
+                                <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                                    <i className="fa-solid fa-plus"></i>
+                                </button>
+                                <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                                    <i className="fa-solid fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
+            <div>
+                <h4>Cart Summary</h4><hr/>
+                <p>Total Price:</p>
+                <p>{totalPrice}</p>
+            </div>
         </div>
     );
 };
