@@ -13,9 +13,9 @@ export const Header = ({cout})=>{
                     <ul className='headerLinks'>
                         <Link to={'/home'}><li>Home</li></Link>
                         <Link to={'/shop'}><li>Shop</li></Link>
-                        <Link to={'/cart'}><li>Cart<sup>{cout}</sup></li></Link>
+                        <Link to={'/cart'}><li>Cart</li></Link>
                         <li><i className="fa-solid fa-user"></i></li>
-                        <Link to={'/cart'}><li><i className="fa-solid fa-cart-shopping"></i></li></Link>
+                        <Link to={'/cart'}><li><i className="fa-solid fa-cart-shopping"></i><sup>{cout}</sup></li></Link>
                     </ul>
                 </nav>
             </div>
