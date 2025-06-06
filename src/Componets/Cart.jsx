@@ -71,7 +71,14 @@ export const Cart = () => {
             </div>
         ):(
             <div className="noProdctsContainer">
-                <p>Your Cart is Empty</p>
+                <div className="noProdctsText">
+                    <p>No Items are add in Cart</p>
+                </div>
+                <div className="cartSummaryDetails">
+                    <h4>Cart Summary</h4><hr/>
+                    <h5>Total Price:</h5>
+                    <h4>${totalPrice}.00</h4>
+                </div>
             </div>
         )}
         </div>

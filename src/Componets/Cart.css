@@ -82,7 +82,18 @@
     padding: 20px;
 }
 .noProdctsContainer{
-    text-align: center;
-    margin: 275px;
-    font-size: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    background-color: rgba(240, 248, 255, 0.749);
+}
+.noProdctsText{
+    background-color: white;
+    margin: 20px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 68%;
+    height: 150px;
 }

@@ -4,14 +4,14 @@ import { Bigdiscount } from "./Bigdiscount"
 import { NewArrivals } from "./NewArrivals"
 import { BestSales } from "./BestSales"
 
-export const Homepage=()=>{
+export const Homepage=({toasfy})=>{
     return(
         <>
         <Carousel/><br/>
         <Servicedata/><br/>
-        <Bigdiscount/><br/>
-        <NewArrivals/><br/>
-        <BestSales/>
+        <Bigdiscount toasfy={toasfy}/><br/>
+        <NewArrivals toasfy={toasfy}/><br/>
+        <BestSales toasfy={toasfy}/>
         </>
     )
 }

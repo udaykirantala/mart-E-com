@@ -42,7 +42,7 @@ export const Shop = () => {
   return (
     <div>
       <div>
-        <BanerPage/> 
+        <BanerPage title={"Product"}/> 
       </div>
       <div className="shopeFilterSearchContainer">
         <div className="shopFilterContainer">
