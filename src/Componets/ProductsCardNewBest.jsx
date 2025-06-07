@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import './ProductsCard.css'
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
+import { toast } from 'react-toastify';
 export const ProductsCardNewBest = (props) => {
-    const [cart,setCart]=useContext(CartContext)
+    const [cart,setCart]=useContext(CartContext);
+    const handleAddToCartToasfy=()=>{
+        toast.success('Product has been added to cart!')
+    }
     return (
         <div className="productCard">
             <Link to={`/${props.id}`} ><div className='productCardImage'>
@@ -28,6 +32,7 @@ export const ProductsCardNewBest = (props) => {
                             const updatedCart = [...cart];
                             updatedCart[existingProductIndex].quantity=(updatedCart[existingProductIndex].quantity||1)+1;
                             setCart(updatedCart);
+                            handleAddToCartToasfy()
                         }else{
                             setCart([...cart,{...props,quantity:1}]);
                         }

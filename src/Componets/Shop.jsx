@@ -3,6 +3,7 @@ import { products } from "../assets/products";
 import { Product } from "./Product";
 import './Shop.css'
 import { BanerPage } from "./BanerPage";
+import { ToastContainer } from "react-toastify";
  
 export const Shop = () => {
   const [dropDownValue, setDropDownValue] = useState("");
@@ -44,6 +45,7 @@ export const Shop = () => {
       <div>
         <BanerPage title={"Product"}/> 
       </div>
+      <ToastContainer position='top-right' autoClose={2000} />
       <div className="shopeFilterSearchContainer">
         <div className="shopFilterContainer">
           <select

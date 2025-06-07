@@ -1,8 +1,12 @@
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
+import { toast } from 'react-toastify';
 
-export const Product = ({ id, imgUrl, productName, price }) => {
+export const Product = ({ id, imgUrl, productName, price}) => {
   const [cart, setCart] = useContext(CartContext);
+  const handleAddToCartToasfy=()=>{
+    toast.success('Product has been added to cart!')
+  }
 
   return (
     <div className="suggistedProductContainer">
@@ -32,6 +36,7 @@ export const Product = ({ id, imgUrl, productName, price }) => {
                 setCart(updatedCart);
               } else {
                 setCart([...cart, { id, imgUrl, productName, price, quantity: 1 }]);
+                handleAddToCartToasfy()
               }
             }}
           >

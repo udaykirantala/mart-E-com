@@ -13,21 +13,16 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [cart,setCart]=useState([])
-  const handleAddToCartToasfy = () => {
-  toast.success('Product has been added to cart!');
-};
-
   return (
     <>
     <CartContext.Provider value={[cart,setCart]}>
     <Header cout={cart.length}/>
-    <ToastContainer position="top-right" autoClose={3000} />
     <Routes>
-      <Route path='/' element={<Homepage toasfy={handleAddToCartToasfy()}/> } />
-      <Route path='/home' element={<Homepage toasfy={handleAddToCartToasfy()}/> }/>
-      <Route path='/shop' element={<Shop toasfy={handleAddToCartToasfy()}/>} />
-      <Route path='/cart' element={<Cart toasfy={handleAddToCartToasfy()}/>}/>
-      <Route path='/:id' element={<Productdetails toasfy={handleAddToCartToasfy()}/>}/>
+      <Route path='/' element={<Homepage/> } />
+      <Route path='/home' element={<Homepage /> }/>
+      <Route path='/shop' element={<Shop />} />
+      <Route path='/cart' element={<Cart />}/>
+      <Route path='/:id' element={<Productdetails />}/>
     </Routes>
     <Footer/>
     </CartContext.Provider>

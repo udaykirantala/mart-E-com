@@ -6,6 +6,7 @@ import { SuggistedProduct } from "./SuggistedProducts";
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 import { BanerPage } from "./BanerPage";
+import { toast, ToastContainer } from "react-toastify";
 
 export const Productdetails = () => {
   const [product, setProduct] = useState([]);
@@ -13,6 +14,10 @@ export const Productdetails = () => {
   const [activeTab, setactiveTab] = useState('discription');
   const { id } = useParams();
   const [cart, setCart] = useContext(CartContext);
+
+  const handleAddToCartToasfy=()=>{
+    toast.success('Product has been added to cart!')
+  }
 
   useEffect(() => {
     const filteredProduct = products.filter((item) => item.id.toString() === id);
@@ -29,6 +34,7 @@ export const Productdetails = () => {
   return (
     <div>
       <div><BanerPage title={product.map(item=>item.productName)} /></div>
+      <ToastContainer position='top-right' autoClose={2000}/>
       <div className="productDetailstotalContainer">
         {product.map((item) => (
           <div key={item.id}>
@@ -63,6 +69,7 @@ export const Productdetails = () => {
                       setCart(updatedCart);
                     } else {
                       setCart([...cart, { ...item, quantity: 1 }]);
+                      handleAddToCartToasfy()
                     }
                   }}
                   className="productDetailsAddtoCartBtn"
@@ -94,7 +101,7 @@ export const Productdetails = () => {
               </div>
             </div>
             <div>
-              <SuggistedProduct likeid={item.category} currentid={item.id} />
+              <SuggistedProduct likeid={item.category} currentid={item.id}/>
             </div>
           </div>
         ))}

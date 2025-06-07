@@ -9,7 +9,7 @@ export const BestSales = ({toasfy})=>{
         <div className="productsContainerBestSales">
             {sofa.map((item)=>(
                 <div>
-                    <ProductsCardNewBest key={item.id} imgUrl={item.imgUrl} productName={item.productName} id={item.id} price={item.price} toasfy={toasfy}/>
+                    <ProductsCardNewBest key={item.id} imgUrl={item.imgUrl} productName={item.productName} id={item.id} price={item.price}/>
                 </div>
             ))}
         </div>
