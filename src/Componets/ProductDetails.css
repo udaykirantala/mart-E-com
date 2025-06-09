@@ -56,3 +56,15 @@
     word-spacing: 5px;
     font-size: 20px;
 }
+.poductCardLikeIcon{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: black;
+    opacity: 0;
+}
+.productCardImage:hover .poductCardLikeIcon{
+    transition: 2s;
+    opacity: 1;
+}

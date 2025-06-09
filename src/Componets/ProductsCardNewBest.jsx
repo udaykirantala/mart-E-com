@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './ProductsCard.css'
+import './Hover.css'
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 import { toast } from 'react-toastify';
@@ -12,6 +13,7 @@ export const ProductsCardNewBest = (props) => {
         <div className="productCard">
             <Link to={`/${props.id}`} ><div className='productCardImage'>
                 <img src={props.imgUrl} alt={props.productName} />
+                <div className='poductCardLikeIcon'><i class="fa-regular fa-heart"></i></div>
             </div></Link>
             <div className='productDetails'>
                 <h2>{props.productName}</h2>
@@ -36,10 +38,11 @@ export const ProductsCardNewBest = (props) => {
                         }else{
                             setCart([...cart,{...props,quantity:1}]);
                         }
-                    }} 
+                    }}
+                    className='pulseBtnHover'
                     ><i className="fa-solid fa-plus"></i></button>
                 </div>
             </div>
         </div>
-    );
+    );  
 }

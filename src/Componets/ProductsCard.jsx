@@ -12,6 +12,7 @@ export const ProductsCard = (props) => {
         <div className="productCard">
             <Link to={`/${props.id}`}><div className='productCardImage'>
                 <img src={props.imgUrl} alt={props.productName} />
+                <div className='poductCardLikeIcon'><i class="fa-regular fa-heart"></i></div>
             </div></Link>
             <div className='productDetails'>
                 <h2>{props.productName}</h2>

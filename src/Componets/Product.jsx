@@ -1,18 +1,19 @@
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 import { toast } from 'react-toastify';
-
+import { Link } from 'react-router-dom';
+import '../Componets/Hover.css'
 export const Product = ({ id, imgUrl, productName, price}) => {
   const [cart, setCart] = useContext(CartContext);
   const handleAddToCartToasfy=()=>{
     toast.success('Product has been added to cart!')
   }
-
   return (
     <div className="suggistedProductContainer">
-      <div className="suggistedProductImage">
+      <Link to={`/${id}`}><div className="suggistedProductImage">
         <img src={imgUrl} alt={productName} />
-      </div>
+        <div className='poductCardLikeIcon'><i class="fa-regular fa-heart"></i></div>
+      </div></Link>
       <div className="suggistedProductDetailsConatiner">
         <div><h2>{productName}</h2></div>
         <div className="suggistedProductStar_Price">

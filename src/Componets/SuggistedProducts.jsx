@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { products } from "../assets/products";
 import './SuggistedProducts.css'
+import './Hover.css'
 import { Product } from "./Product";
 
 export const SuggistedProduct = ({ likeid,currentid }) => {
@@ -17,7 +18,7 @@ export const SuggistedProduct = ({ likeid,currentid }) => {
     {suggistproduct.length > 0 ? (
       <div className="suggistedContainer">
         {suggistproduct.map((item) => (
-          <Product imgUrl={item.imgUrl} productName={item.productName} price={item.price}/>
+          <Product imgUrl={item.imgUrl} productName={item.productName} price={item.price} id={item.id}/>
         ))}
       </div>
     ) : (
