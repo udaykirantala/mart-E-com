@@ -16,7 +16,7 @@ function App() {
   return (
     <>
     <CartContext.Provider value={[cart,setCart]}>
-    <Header cout={cart.length}/>
+    <Header cout={cart.length}/><br/>
     <Routes>
       <Route path='/' element={<Homepage/> } />
       <Route path='/home' element={<Homepage /> }/>

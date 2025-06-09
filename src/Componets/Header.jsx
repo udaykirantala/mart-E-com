@@ -11,11 +11,11 @@ export const Header = ({cout})=>{
             <div>
                 <nav>
                     <ul className='headerLinks'>
-                        <Link to={'/home'}><li>Home</li></Link>
-                        <Link to={'/shop'}><li>Shop</li></Link>
-                        <Link to={'/cart'}><li>Cart</li></Link>
+                        <li><Link to={'/home'} className='Links'>Home</Link></li>
+                        <li><Link to={'/shop'} className='Links'>Shop</Link></li>
+                        <li><Link to={'/cart'} className='Links'>Cart</Link></li>
                         <li><i className="fa-solid fa-user"></i></li>
-                        <Link to={'/cart'}><li><i className="fa-solid fa-cart-shopping"></i><sup>{cout}</sup></li></Link>
+                        <li className='cartLogoCount'><Link to={'/cart'} className='Links'><i className="fa-solid fa-cart-shopping"></i><sup className='countValue'>{cout}</sup></Link></li>
                     </ul>
                 </nav>
             </div>
